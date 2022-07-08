@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ebefd35-6970-4903-9700-c92661c2acce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Exercicio01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicio01.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exercicio01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exercicio01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jogador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jogador.java" afterDir="false" />
-    </list>
+    <list default="true" id="5ebefd35-6970-4903-9700-c92661c2acce" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +18,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
