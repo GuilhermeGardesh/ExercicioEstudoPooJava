@@ -1,23 +1,23 @@
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Jogador {
-    /*nome, posição, data de nascimento, nacionalidade, altura e peso*/
+    //Coletando ano do sistema
+    Calendar data = Calendar.getInstance();
+    int ano = data.get(Calendar.YEAR);
+
+    //nome, posição, data de nascimento, nacionalidade, altura e peso
 
     private String nome, posicao, nacionalidade;
     private double altura, peso;
-    //private  dataDeNascimento;
+    private  int dataDeNascimento;
 
 
-    //construct
+    //construtores
 
 
 
     //Get set
+
     public String getNome() {
         return nome;
     }
@@ -58,13 +58,20 @@ public class Jogador {
         this.peso = peso;
     }
 
-    /*public Date getDataDeNac() {
-        return dataDeNac;
+    public int getDataDeNascimento() {
+        return dataDeNascimento;
     }
 
-    public void setDataDeNac(Date dataDeNac) {
-        this.dataDeNac = dataDeNac;
-    }*/
+    public void setDataDeNascimento(int dataDeNascimento) {
+        this.dataDeNascimento = dataDeNascimento;
+        if (this.dataDeNascimento>ano) {
+            System.out.println("O jogador ainda não nasceu, digite um ano válido(YYYY). ");
+        }else if (ano-this.getDataDeNascimento()>120){
+            System.out.println("O jogador com ano de nascimento inválido, digite um ano válido(YYYY). ");
+        }
+        setDataDeNascimento(0);
+    }
+
 
     //Metodos
 
@@ -80,9 +87,14 @@ public class Jogador {
                 '}';
     }
 
-    /*public void idade(Date dataDeNac){
-        int idade = dataDeNac -
+    public int idade (){
+        int i = 0;
+        i = ano - getDataDeNascimento();
+       return i;
+    }
 
-    }*/
+    public void printarAno(){
+        System.out.println(ano);
+    }
 
 }

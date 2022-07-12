@@ -1,21 +1,34 @@
 import java.util.Scanner;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
+/*nome, posição, data de nascimento, nacionalidade, altura e peso*/
 
 public class Exercicio01 {
-    public static void main(String args[]) {
-
+    public static void main(String args[]){
         Scanner s = new Scanner(System.in);
-        SimpleDateFormat sdf = new SimpleDateFormat();
-        Calendar cal = Calendar.getInstance();
-        Date data = cal.getTime();
+
+        Jogador j1 = new Jogador();
+
+
+        j1.printarAno();
+
+        System.out.print("Digite o nome do jogador: ");
+        j1.setNome(s.next());
+        System.out.print("Digite o ano de nascimento do jogador(yyyy): ");
+        while (j1.getDataDeNascimento()<1){
+            j1.setDataDeNascimento(s.nextInt());
+        }
+        System.out.print("Digite a nacionalidade do jogador: ");
+        j1.setNacionalidade(s.next());
+        System.out.print("Digite a altura do jogador: ");
+        j1.setAltura(s.nextDouble());
+        System.out.print("Digite o peso do jogador: ");
+        j1.setPeso(s.nextDouble());
 
 
 
-        SimpleDateFormat f = (SimpleDateFormat) SimpleDateFormat.getDateInstance(SimpleDateFormat.LONG);
-        System.out.println(f.format(data));
+
+
+
 
 
 
