@@ -1,6 +1,9 @@
 import java.util.Calendar;
+import java.util.Scanner;
 
 public class Jogador {
+    //Classe Scanner
+    Scanner s = new Scanner(System.in);
     //Coletando ano do sistema
     Calendar data = Calendar.getInstance();
     int ano = data.get(Calendar.YEAR);
@@ -8,12 +11,11 @@ public class Jogador {
     //nome, posição, data de nascimento, nacionalidade, altura e peso
 
     private String nome, posicao, nacionalidade;
-    private double altura, peso;
-    private  int dataDeNascimento;
+    private double peso;
+    private  int altura, dataDeNascimento;
 
 
     //construtores
-
 
 
     //Get set
@@ -31,7 +33,13 @@ public class Jogador {
     }
 
     public void setPosicao(String posicao) {
-        this.posicao = posicao;
+        if (posicao.equals("D")){
+            this.posicao=("Defesa");
+        } else if (posicao.equals("M")){
+            this.posicao=("Meio");
+        } else if (posicao.equals("DA")){
+            this.posicao=("Ataque");
+        }
     }
 
     public String getNacionalidade() {
@@ -42,11 +50,11 @@ public class Jogador {
         this.nacionalidade = nacionalidade;
     }
 
-    public double getAltura() {
+    public int getAltura() {
         return altura;
     }
 
-    public void setAltura(double altura) {
+    public void setAltura(int altura) {
         this.altura = altura;
     }
 
@@ -65,36 +73,55 @@ public class Jogador {
     public void setDataDeNascimento(int dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
         if (this.dataDeNascimento>ano) {
-            System.out.println("O jogador ainda não nasceu, digite um ano válido(YYYY). ");
-        }else if (ano-this.getDataDeNascimento()>120){
-            System.out.println("O jogador com ano de nascimento inválido, digite um ano válido(YYYY). ");
+            System.out.print("O jogador ainda não nasceu, digite um ano válido(YYYY). \nDigite:  ");
+        }else if (this.idade()==0){
+            System.out.print("O jogador nasceu neste ano, digite um ano válido(YYYY). \nDigite:  ");
+        }if (this.idade()>100){
+            System.out.print("Está certo do ano que digitou? (S/N)");
+            String i = s.next();
+            if (i.equals("S")){}
+            while (i.equals("N")){
+                System.out.print("Digite o ano(yyyy): ");
+                this.setDataDeNascimento(s.nextInt());
+                i="S";
+            }
         }
-        setDataDeNascimento(0);
     }
 
 
     //Metodos
+    public void printarDados(){
 
-    @Override
-    public String toString() {
-        return "Jogador{" +
-                "nome='" + nome + '\'' +
-                ", posicao='" + posicao + '\'' +
-                ", nacionalidade='" + nacionalidade + '\'' +
-                ", altura=" + altura +
-                ", peso=" + peso +
-                ", dataDeNac=" + //dataDeNac +
-                '}';
+
     }
 
     public int idade (){
         int i = 0;
-        i = ano - getDataDeNascimento();
+        i = ano - this.getDataDeNascimento();
        return i;
     }
 
-    public void printarAno(){
-        System.out.println(ano);
+    public void aposentadoria() {
+        if (this.getPosicao().equals("Defesa")) {
+            if (this.idade() >= 40) {
+                System.out.print("Este jogador já está aposentado ou se aposenta este ano.");
+            } else {
+                System.out.print("faltam " + (40 - this.idade()) + " anos para este jogador se aposentar.");
+            }
+        } else if (this.getPosicao().equals("Meio")) {
+            if (this.idade() >= 38) {
+                System.out.print("Este jogador já está aposentado ou se aposenta este ano.");
+            } else {
+                System.out.print("faltam " + (38 - this.idade()) + " anos para este jogador se aposentar.");
+            }
+        }else if (this.getPosicao().equals("Ataque")) {
+            if (this.idade() >= 35) {
+                System.out.print("Este jogador já está aposentado ou se aposenta este ano.");
+            } else {
+                System.out.print("faltam " + (35 - this.idade()) + " anos para este jogador se aposentar.");
+            }
+        }
+
     }
 
 }
