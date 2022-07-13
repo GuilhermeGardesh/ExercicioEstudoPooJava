@@ -91,7 +91,10 @@ public class Jogador {
 
     //Metodos
     public void printarDados(){
-
+        //nome, posição, data de nascimento, nacionalidade, altura e peso.
+        System.out.println("\n___ Dados do Jogador___");
+        System.out.println("Nome: "+ this.getNome()+"; \nAno de nascimento: "+this.getDataDeNascimento()+"; Nacionalidade: "+this.getNacionalidade());
+        System.out.println("Posição: "+this.getPosicao()+"; Altura(cm): "+this.getAltura()+"; Peso(Kg): "+this.getPeso());
 
     }
 
@@ -104,21 +107,21 @@ public class Jogador {
     public void aposentadoria() {
         if (this.getPosicao().equals("Defesa")) {
             if (this.idade() >= 40) {
-                System.out.print("Este jogador já está aposentado ou se aposenta este ano.");
+                System.out.println("Este jogador já está aposentado ou se aposenta este ano.");
             } else {
-                System.out.print("faltam " + (40 - this.idade()) + " anos para este jogador se aposentar.");
+                System.out.println("faltam " + (40 - this.idade()) + " anos para este jogador se aposentar.");
             }
         } else if (this.getPosicao().equals("Meio")) {
             if (this.idade() >= 38) {
-                System.out.print("Este jogador já está aposentado ou se aposenta este ano.");
+                System.out.println("Este jogador já está aposentado ou se aposenta este ano.");
             } else {
-                System.out.print("faltam " + (38 - this.idade()) + " anos para este jogador se aposentar.");
+                System.out.println("faltam " + (38 - this.idade()) + " anos para este jogador se aposentar.");
             }
         }else if (this.getPosicao().equals("Ataque")) {
             if (this.idade() >= 35) {
-                System.out.print("Este jogador já está aposentado ou se aposenta este ano.");
+                System.out.println("Este jogador já está aposentado ou se aposenta este ano.");
             } else {
-                System.out.print("faltam " + (35 - this.idade()) + " anos para este jogador se aposentar.");
+                System.out.println("faltam " + (35 - this.idade()) + " anos para este jogador se aposentar.");
             }
         }
 

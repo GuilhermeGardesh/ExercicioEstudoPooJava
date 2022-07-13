@@ -32,6 +32,7 @@ public class Exercicio01 {
         j.setPeso(s.nextDouble());
 
         j.aposentadoria();
+        j.printarDados();
 
 
 
