@@ -20,7 +20,20 @@ public class Exercicio01 {
         }
 
         System.out.print("Digite a sigla da área em que ele joga.\nD - Defesa \nM - Meio campo\nA - Ataque \nDigite: ");
-        j.setPosicao(s.next());
+        switch (s.next()){
+            case ("D"):
+                j.setPosicao(Posicao.DEFESA);
+                break;
+            case ("M"):
+                j.setPosicao(Posicao.MEIO);
+                break;
+            case ("A"):
+                j.setPosicao(Posicao.ATAQUE);
+                break;
+            default:
+                System.out.println("Tente novamente");
+        }
+
 
         System.out.print("Digite a nacionalidade do jogador: ");
         j.setNacionalidade(s.next());
@@ -32,7 +45,11 @@ public class Exercicio01 {
         j.setPeso(s.nextDouble());
 
         j.aposentadoria();
+
+
+
         j.printarDados();
+
 
 
 

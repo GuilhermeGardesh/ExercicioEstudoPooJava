@@ -1,6 +1,8 @@
 import java.util.Calendar;
 import java.util.Scanner;
 
+
+
 public class Jogador {
     //Classe Scanner
     Scanner s = new Scanner(System.in);
@@ -10,9 +12,10 @@ public class Jogador {
 
     //nome, posição, data de nascimento, nacionalidade, altura e peso
 
-    private String nome, posicao, nacionalidade;
+    private String nome, nacionalidade;
     private double peso;
     private  int altura, dataDeNascimento;
+    private Posicao posicao;
 
 
     //construtores
@@ -28,18 +31,11 @@ public class Jogador {
         this.nome = nome;
     }
 
-    public String getPosicao() {
+    public Posicao getPosicao() {
         return posicao;
     }
-
-    public void setPosicao(String posicao) {
-        if (posicao.equals("D")){
-            this.posicao=("Defesa");
-        } else if (posicao.equals("M")){
-            this.posicao=("Meio");
-        } else if (posicao.equals("DA")){
-            this.posicao=("Ataque");
-        }
+    public void setPosicao(Posicao posicao) {
+        this.posicao = posicao;
     }
 
     public String getNacionalidade() {
@@ -89,12 +85,14 @@ public class Jogador {
     }
 
 
+
     //Metodos
     public void printarDados(){
         //nome, posição, data de nascimento, nacionalidade, altura e peso.
         System.out.println("\n___ Dados do Jogador___");
         System.out.println("Nome: "+ this.getNome()+"; \nAno de nascimento: "+this.getDataDeNascimento()+"; Nacionalidade: "+this.getNacionalidade());
-        System.out.println("Posição: "+this.getPosicao()+"; Altura(cm): "+this.getAltura()+"; Peso(Kg): "+this.getPeso());
+        System.out.println("Posição: "+this.getPosicao().getDesc()+" Descrição: "+this.getPosicao().getDescricao()+"; " +
+                "\nAltura(cm): "+this.getAltura()+"; Peso(Kg): "+this.getPeso());
 
     }
 
@@ -105,26 +103,33 @@ public class Jogador {
     }
 
     public void aposentadoria() {
-        if (this.getPosicao().equals("Defesa")) {
-            if (this.idade() >= 40) {
-                System.out.println("Este jogador já está aposentado ou se aposenta este ano.");
-            } else {
-                System.out.println("faltam " + (40 - this.idade()) + " anos para este jogador se aposentar.");
-            }
-        } else if (this.getPosicao().equals("Meio")) {
-            if (this.idade() >= 38) {
-                System.out.println("Este jogador já está aposentado ou se aposenta este ano.");
-            } else {
-                System.out.println("faltam " + (38 - this.idade()) + " anos para este jogador se aposentar.");
-            }
-        }else if (this.getPosicao().equals("Ataque")) {
-            if (this.idade() >= 35) {
-                System.out.println("Este jogador já está aposentado ou se aposenta este ano.");
-            } else {
-                System.out.println("faltam " + (35 - this.idade()) + " anos para este jogador se aposentar.");
-            }
+        switch (this.posicao) {
+            case DEFESA:
+                if (this.idade() >= 40) {
+                    System.out.println("Este jogador já está aposentado ou se aposenta este ano.");
+                } else {
+                    System.out.println("faltam " + (40 - this.idade()) + " anos para este jogador se aposentar.");
+                }
+                break;
+            case MEIO:
+                if (this.idade() >= 38) {
+                    System.out.println("Este jogador já está aposentado ou se aposenta este ano.");
+                } else {
+                    System.out.println("faltam " + (38 - this.idade()) + " anos para este jogador se aposentar.");
+                }
+                break;
+            case ATAQUE:
+                if (this.idade() >= 35) {
+                    System.out.println("Este jogador já está aposentado ou se aposenta este ano.");
+                } else {
+                    System.out.println("faltam " + (35 - this.idade()) + " anos para este jogador se aposentar.");
+                }
+                break;
         }
 
+
     }
+
+
 
 }
